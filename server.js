@@ -6,6 +6,7 @@ const modelsArticle = require("./models/article");
 const routesArticles = require("./routes/articles");
 const mongoose = require("mongoose");
 const expressApp = express();
+const PORT = process.env.PORT || 5000;
 
 mongoose.connect("mongodb://localhost/blog", {useNewUrlParser: true, useUnifiedTopology: true});
 expressApp.set("view engine", "ejs");
@@ -17,4 +18,8 @@ expressApp.get("/", async (req, res) => {
   res.render("articles/index", {articles: articles});
 });
 expressApp.use("/articles", routesArticles);
-expressApp.listen(5000);
+// expressApp.listen(5000);
+
+expressApp.listen(PORT, () =>
+    console.info(`Example app listening at http://localhost:${PORT} 🚀`)
+);

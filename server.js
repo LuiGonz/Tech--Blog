@@ -6,7 +6,7 @@ const modelsArticle = require("./models/article");
 const routesArticles = require("./routes/articles");
 const mongoose = require("mongoose");
 const expressApp = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3001;
 
 mongoose.connect("mongodb://localhost/blog", {useNewUrlParser: true, useUnifiedTopology: true});
 expressApp.set("view engine", "ejs");
